@@ -1,5 +1,5 @@
-import { Component } from "react";
-import { TIMES_LIST, DAYS } from "./structs";
+import { Component } from 'react';
+import { TIMES_LIST, DAYS } from './structs';
 
 export class EventAdder extends Component {
     constructor(props) {
@@ -44,20 +44,20 @@ export class EventAdder extends Component {
       return(
         <div className='event-adder-container'>
           <div className='event-adder'>
-            <h3>Add event</h3>
+            <div className='event-adder-title'>Add event</div>
 
-            <h4>Name</h4>
-            <input value={this.state.name} onChange={e => this.onChangeEventName(e)}></input>
+            <div className='event-adder-label name'>Name</div>
+            <input className='event-adder-field name' value={this.state.name} onChange={e => this.onChangeEventName(e)}></input>
 
-            <h4>Day</h4>
-            <select defaultValue={this.state.day} onChange={e => this.onChangeEventDay(e)}>
+            <div className='event-adder-label day'>Day</div>
+            <select className='event-adder-field day' defaultValue={this.state.day} onChange={e => this.onChangeEventDay(e)}>
               {Object.values(DAYS).map(day => (
                 <option value={day} key={day}>{day}</option>
               ))}
             </select>
 
-            <h4>Time</h4>
-            <select defaultValue={this.state.time} onChange={e => this.onChangeEventTime(e)}>
+            <div className='event-adder-label time'>Time</div>
+            <select className='event-adder-field time' defaultValue={this.state.time} onChange={e => this.onChangeEventTime(e)}>
               {TIMES_LIST.map(time => (
                 <option value={time} key={time}>{time}</option>
               ))}

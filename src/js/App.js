@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   render() {
-    return <div>
+    return <div className='app-container'>
       <WeekCalendar events={this.state.events}/>
       <EventAdder onAddEvent={(event) => this.addEvent(event)}/>
     </div>

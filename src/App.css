@@ -1,3 +1,9 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
 .week-calendar-container {
   display: flex;
   justify-content: center;
@@ -13,15 +19,59 @@
   height: 30px;
 }
 
-.entry, .day-label, .time-row {
+.entry, .day-label-container, .time-row {
   border-left: 1px solid lightgray;
 }
 
-.day-label, .placeholder-date {
+.entry {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 5px;
+  padding: 2px
+}
+
+.event {
+  flex: 1;
+  min-width: 0;
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.event .event-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.day-label-container, .placeholder-date {
   border-bottom: 1px solid lightgray;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.day-label {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.time-label {
+  text-align: center;
+  font-size: 12px;
+}
+
+.event-adder-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.event-adder-label {
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 20px;
 }
 
 .event-adder-container {

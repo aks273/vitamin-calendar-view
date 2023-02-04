@@ -1,10 +1,10 @@
-import { Component, Fragment } from "react"
-import { DAYS, TIMES_LIST } from "./structs"
+import { Component, Fragment } from 'react'
+import { DAYS, TIMES_LIST } from './structs'
 
 class CalendarEvent extends Component {
   render() {
-    return <div>
-      <h5>{this.props.name}</h5>
+    return <div className='event'>
+      <div className='event-label'>{this.props.name}</div>
     </div>
   }
 }
@@ -23,8 +23,8 @@ class CalendarEntry extends Component {
 
 export class WeekCalendar extends Component {
   createDayLabel(dayName) {
-    return <div key={`day-label ${dayName}`} className={`day-label ${dayName}`}>
-      <h5>{dayName}</h5>
+    return <div key={`day-label-container ${dayName}`} className={`day-label-container ${dayName}`}>
+      <div className='day-label'>{dayName}</div>
     </div>
   }
 
@@ -39,7 +39,7 @@ export class WeekCalendar extends Component {
 
   createTimeRow(time) {
     return <Fragment key={`row ${time}`}>
-      <div className='time-row' key={`time-label ${time}`}>{time}</div>
+      <div className='time-label' key={`time-label ${time}`}>{time}</div>
       {Object.values(DAYS).map(day => (
         this.createCalendarEntry(day, time)
       ))}
