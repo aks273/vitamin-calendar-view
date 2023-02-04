@@ -1,0 +1,55 @@
+.week-calendar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.week-calendar {
+  display: grid;
+  grid-template-rows: 50px repeat(9, 100px);
+  grid-template-columns: 100px repeat(5, 200px);
+}
+
+.entry, .day-label-container, .time-row {
+  border-left: 1px solid lightgray;
+}
+
+.day-label-container, .placeholder-date {
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-label {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.time-label {
+  text-align: center;
+  font-size: 12px;
+}
+
+.entry {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 5px;
+  padding: 2px;
+}
+
+.event {
+  flex: 1;
+  min-width: 0;
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.event-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  white-space: nowrap;
+}

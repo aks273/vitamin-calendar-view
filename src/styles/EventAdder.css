@@ -1,0 +1,44 @@
+.event-adder-container {
+  display: flex;
+  justify-content: center;
+}
+
+.event-adder-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.event-adder-label {
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.event-adder {
+  width: min(100%, 300px);
+}
+
+.event-adder-field {
+  width: 100%;
+  border-color: lightgray;
+  border-radius: 5px;
+  border-width: 0.5px;
+}
+
+.event-adder-button {
+  margin-top: 20px;
+  background-color: blue;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px 40px;
+}
+
+.event-adder-button:active {
+  cursor: pointer;
+  background-color: rgba(0, 0, 255, 0.8);
+}
+
+.event-adder-button:hover {
+  cursor: pointer;
+}

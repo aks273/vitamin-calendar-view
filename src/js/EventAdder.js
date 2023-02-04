@@ -63,7 +63,7 @@ export class EventAdder extends Component {
               ))}
             </select>
 
-            <button onClick={() => this.onClickAddEvent()}>Add Event</button>
+            <button className='event-adder-button' onClick={() => this.onClickAddEvent()}>Add</button>
           </div>
         </div>
       )
