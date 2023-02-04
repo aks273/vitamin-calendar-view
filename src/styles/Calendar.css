@@ -9,7 +9,7 @@
   grid-template-columns: 100px repeat(5, 200px);
 }
 
-.entry, .day-label-container, .time-row {
+.entry, .day-label-container, .time-row, .time-label {
   border-left: 1px solid lightgray;
 }
 
