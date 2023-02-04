@@ -12,9 +12,9 @@ class App extends Component {
   }
 
   addEvent(newEvent) {
-    this.setState(prevState => ({
-      events: [...prevState.events, newEvent],
-    }))
+    this.setState({
+      events: [...this.state.events, newEvent],
+    })
   }
 
   render() {
