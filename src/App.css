@@ -17,7 +17,7 @@
   border-left: 1px solid lightgray;
 }
 
-.day-label, .dummy-div {
+.day-label, .placeholder-date {
   border-bottom: 1px solid lightgray;
   display: flex;
   align-items: center;

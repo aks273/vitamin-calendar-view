@@ -12,8 +12,9 @@ export class EventAdder extends Component {
       }
     }
     onClickAddEvent() {
-      // check state for appropriate fields
-      this.props.onAddEvent(this.state);
+      if (this.state.name) {
+        this.props.onAddEvent(this.state);
+      }
     }
 
     onChangeEventName(e) {

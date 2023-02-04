@@ -1,15 +1,21 @@
 import { Component, Fragment } from "react"
 import { DAYS, TIMES_LIST } from "./structs"
 
+class CalendarEvent extends Component {
+  render() {
+    return <div>
+      <h5>{this.props.name}</h5>
+    </div>
+  }
+}
+
 class CalendarEntry extends Component {
   render() {
-    if (this.props.events.length) {
-      console.log(this.props.day, this.props.time, this.props.events)
-    }
     return (
       <div className='entry'>
-        <div>{this.props.day}</div>
-        <div>{this.props.time}</div>
+        {this.props.events.map(e => (
+          <CalendarEvent name={e.name} />
+        ))}
       </div>
     )
   }
@@ -35,7 +41,7 @@ export class WeekCalendar extends Component {
     return <Fragment key={`row ${time}`}>
       <div className='time-row' key={`time-label ${time}`}>{time}</div>
       {Object.values(DAYS).map(day => (
-          this.createCalendarEntry(day, time)
+        this.createCalendarEntry(day, time)
       ))}
     </Fragment>
   }
@@ -44,7 +50,7 @@ export class WeekCalendar extends Component {
     return (
       <div className='week-calendar-container'>
         <div className='week-calendar'>
-          <div className='dummy-div' key='placeholder-date'></div>
+          <div className='placeholder-date' key='placeholder-date'></div>
           {Object.values(DAYS).map(day => (
             this.createDayLabel(day)
           ))}
