@@ -1,12 +1,13 @@
 .week-calendar-container {
   display: flex;
   justify-content: center;
+  align-items: stretch;
 }
 
 .week-calendar {
   display: grid;
   grid-template-rows: 50px repeat(9, 100px);
-  grid-template-columns: 100px repeat(5, 200px);
+  grid-template-columns: 100px repeat(5, minmax(auto, 200px));
 }
 
 .entry, .day-label-container, .time-row, .time-label {
