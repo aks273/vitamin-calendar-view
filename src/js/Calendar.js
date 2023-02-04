@@ -46,10 +46,10 @@ export class WeekCalendar extends Component {
         <div className='week-calendar'>
           <div className='dummy-div' key='placeholder-date'></div>
           {Object.values(DAYS).map(day => (
-              this.createDayLabel(day)
+            this.createDayLabel(day)
           ))}
           {TIMES_LIST.map(time => (
-              this.createTimeRow(time)
+            this.createTimeRow(time)
           ))}
         </div>
       </div>
