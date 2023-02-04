@@ -43,7 +43,7 @@ export class WeekCalendar extends Component {
   render() {
     return (
       <div className='week-calendar-container'>
-          <div className='week-calendar'>
+        <div className='week-calendar'>
           <div className='dummy-div' key='placeholder-date'></div>
           {Object.values(DAYS).map(day => (
               this.createDayLabel(day)
@@ -51,7 +51,7 @@ export class WeekCalendar extends Component {
           {TIMES_LIST.map(time => (
               this.createTimeRow(time)
           ))}
-          </div>
+        </div>
       </div>
     )
   }
