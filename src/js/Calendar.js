@@ -17,31 +17,31 @@ class CalendarEntry extends Component {
 
 export class WeekCalendar extends Component {
   createDayLabel(dayName) {
-      return <div key={`day-label ${dayName}`} className={`day-label ${dayName}`}>
+    return <div key={`day-label ${dayName}`} className={`day-label ${dayName}`}>
       <h5>{dayName}</h5>
-      </div>
+    </div>
   }
 
   createCalendarEntry(day, time) {
-      return <CalendarEntry
+    return <CalendarEntry
       time={time}
       day={day}
       key={`${time} ${day}`}
       events={this.props.events.filter(e => e.day === day && e.time === time)}
-      />
+    />
   }
 
   createTimeRow(time) {
-      return <Fragment key={`row ${time}`}>
+    return <Fragment key={`row ${time}`}>
       <div className='time-row' key={`time-label ${time}`}>{time}</div>
       {Object.values(DAYS).map(day => (
           this.createCalendarEntry(day, time)
       ))}
-      </Fragment>
+    </Fragment>
   }
 
   render() {
-      return (
+    return (
       <div className='week-calendar-container'>
           <div className='week-calendar'>
           <div className='dummy-div' key='placeholder-date'></div>
@@ -53,6 +53,6 @@ export class WeekCalendar extends Component {
           ))}
           </div>
       </div>
-      )
+    )
   }
 }

@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
     return <div>
       <WeekCalendar events={this.state.events}/>
       <EventAdder onAddEvent={(event) => this.addEvent(event)}/>
