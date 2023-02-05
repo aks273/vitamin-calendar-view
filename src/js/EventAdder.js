@@ -58,7 +58,7 @@ export class EventAdder extends Component {
     }
 
     onChangeField(e, name) {
-        const newState = this.state;
+        const newState = { ...this.state };
         newState[name] = e.target.value;
         this.setState(newState)
     }
