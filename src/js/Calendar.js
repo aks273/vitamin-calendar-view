@@ -14,7 +14,7 @@ class CalendarEntry extends Component {
     return (
       <div className='entry'>
         {this.props.events.map(e => (
-          <CalendarEvent name={e.name} />
+          <CalendarEvent key={e.name} name={e.name} />
         ))}
       </div>
     )

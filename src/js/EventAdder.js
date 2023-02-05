@@ -1,5 +1,44 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import { TIMES_LIST, DAYS } from './structs';
+
+class EventSelectField extends Component {
+    render() {
+        return (
+            <Fragment>
+                <div className={`event-adder-label ${this.props.title}`}>
+                    {this.props.displayTitle}
+                </div>
+                <select
+                    className={`event-adder-field ${this.props.title}`}
+                    defaultValue={this.props.value}
+                    onChange={e => this.props.onChange(e, this.props.title)}
+                >
+                    {this.props.options.map(option => (
+                        <option value={option} key={option}>{option}</option>
+                    ))}
+                </select>
+            </Fragment>
+        )
+    }
+}
+
+class EventInputField extends Component {
+    render() {
+        return (
+            <Fragment>
+                <div className={`event-adder-label ${this.props.title}`}>
+                    {this.props.displayTitle}
+                </div>
+                <input
+                    className={`event-adder-field ${this.props.title}`}
+                    value={this.props.value}
+                    onChange={e => this.props.onChange(e, this.props.title)}
+                >
+                </input>
+            </Fragment>
+        )
+    }
+}
 
 export class EventAdder extends Component {
     constructor(props) {
@@ -11,57 +50,45 @@ export class EventAdder extends Component {
         time: TIMES_LIST[0],
       }
     }
+
     onClickAddEvent() {
       if (this.state.name) {
         this.props.onAddEvent(this.state);
       }
     }
 
-    onChangeEventName(e) {
-      this.setState({
-        ...this.state,
-        name: e.target.value,
-      });
-    }
-
-    onChangeEventDay(e) {
-      this.setState({
-        ...this.state,
-        day: e.target.value,
-      })
-    }
-
-    onChangeEventTime(e) {
-      this.setState({
-        ...this.state,
-        time: e.target.value,
-      })
+    onChangeField(e, name) {
+        const newState = this.state;
+        newState[name] = e.target.value;
+        this.setState(newState)
     }
 
     render() {
-      console.log(this.state);
-
       return(
         <div className='event-adder-container'>
           <div className='event-adder'>
             <div className='event-adder-title'>Add event</div>
 
-            <div className='event-adder-label name'>Name</div>
-            <input className='event-adder-field name' value={this.state.name} onChange={e => this.onChangeEventName(e)}></input>
-
-            <div className='event-adder-label day'>Day</div>
-            <select className='event-adder-field day' defaultValue={this.state.day} onChange={e => this.onChangeEventDay(e)}>
-              {Object.values(DAYS).map(day => (
-                <option value={day} key={day}>{day}</option>
-              ))}
-            </select>
-
-            <div className='event-adder-label time'>Time</div>
-            <select className='event-adder-field time' defaultValue={this.state.time} onChange={e => this.onChangeEventTime(e)}>
-              {TIMES_LIST.map(time => (
-                <option value={time} key={time}>{time}</option>
-              ))}
-            </select>
+            <EventInputField
+                title='name'
+                displayTitle='Name'
+                onChange={(e, title) => this.onChangeField(e, title)}
+                value={this.state.name}
+            />
+            <EventSelectField
+                title='day'
+                displayTitle='Day'
+                options={Object.values(DAYS)}
+                onChange={(e, title) => this.onChangeField(e, title)}
+                value={this.state.day}
+            />
+            <EventSelectField
+                title='time'
+                displayTitle='Time'
+                options={TIMES_LIST}
+                onChange={(e, title) => this.onChangeField(e, title)}
+                value={this.state.time}
+            />
 
             <button className='event-adder-button' onClick={() => this.onClickAddEvent()}>Add</button>
           </div>
